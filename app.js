@@ -69,6 +69,7 @@ const updateStats = () => {
 
 const editTask = (index) => {
   if (editingIndex !== null) {
+    document.querySelector(".txtarea").removeAttribute('disabled');
     const editedText = document.querySelector(`.txtarea[data-index='${editingIndex}']`).value.trim();
     if (editedText) {
       tasks[editingIndex].text = editedText; 
@@ -110,7 +111,7 @@ const updateTaskList = () => {
       <div class="taskItem">
         <div class="task ${task.completed ? "completed" : ""}">
           <input type="checkbox" class="checkbox" ${task.completed ? "checked" : ""} data-index="${index}"/>
-          <textarea class="txtarea" data-index="${index}" ${editingIndex === index ? '' : 'disabled'}>${task.text}</textarea>
+          <textarea class="txtarea" disabled data-index="${index}" ${editingIndex === index ? '' : 'disabled'}>${task.text}</textarea>
         </div>
         <div class="icons">
           <img src="./img/edit.png" data-index="${index}" onclick="editTask(${index})" />

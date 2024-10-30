@@ -109,6 +109,9 @@ button {
   position: relative;
   
 }
+.txtarea{
+  resize: none;
+}
 .task{
   display: flex;
   align-items: center;
